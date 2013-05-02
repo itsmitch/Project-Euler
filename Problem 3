@@ -1,0 +1,20 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+int main()
+{
+longlong x=600851475143;
+longlong i=2, y=0;
+while (x!=1)
+{
+if (x%i==0)
+{
+x = x/i;
+y=i;
+}
+i++;
+}
+cout<<y;
+
+
+}

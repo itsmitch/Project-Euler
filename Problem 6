@@ -1,0 +1,47 @@
+/*
+Find the difference between the sum
+of the squares of the first one hundred
+natural numbers and the square of the sum.
+
+*/
+
+
+#include <iostream>
+
+using namespace std;
+
+int pow(int base, int power)
+{
+    int result=1;
+
+    while(power>0)
+    {
+        result=result*base;
+        power--;
+    }
+
+    return result;
+}
+
+int main()
+{
+    int sumOfSquare=0, squareOfSum=0, sum=0;
+
+    for(int i=0;i<=100;i++)
+    {
+        sum+=i;
+    }
+
+    squareOfSum=pow(sum,2);
+    sum=0;
+
+    for(int j=0;j<=100;j++)
+    {
+        sum+=pow(j,2);
+    }
+
+    sumOfSquare=sum;
+    cout<<squareOfSum-sumOfSquare;
+
+    return 0;
+}

@@ -1,0 +1,81 @@
+#include <iostream>
+#include<stack>
+using namespace std;
+
+int isPal(int z)
+{
+
+    stack<int>a;
+    bool b;
+    int x=0,y=0;
+    x=z;
+
+    while(x>0)
+    {
+        y=x/10;
+        y=y*10;
+        y=x-y;
+        a.push(y);
+        x=x/10;
+    }
+    x=a.size();
+    int array[x];
+    for(int i=0;i<x;i++)
+    {
+        array[i]=a.top();
+        a.pop();
+    }
+    b=false;
+    int first=0;
+    int last=x-1;
+
+    while(first<last)
+    {
+        if(array[first]!=array[last])
+        {
+            b=0;
+            break;
+        }
+        else
+        b=1;
+
+        first++;
+        last--;
+
+    }
+    return b;
+}
+
+int main()
+{
+int l=999, m=999;
+int x=l*m;
+stack<int>s;
+while(m>=100&&l>=100)
+{
+    x=m*l;
+
+    if(l==100)
+    {
+        m--;
+        l=m;
+    }
+    else if(isPal(x)==1)
+    s.push(x);
+
+    l--;
+
+}
+
+while(!s.empty())
+{cout<<s.top()<<endl;
+s.pop();
+}
+
+
+
+return 0;
+
+
+
+}

@@ -1,0 +1,39 @@
+/*-----------------------------------
+What is the 10 001st prime number?
+------------------------------------*/
+
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int nthPrime(int x)
+{
+    stack <int> prime;
+    int y;
+    int n=2;
+
+    while(prime.size()!=x)
+    {
+        y=2;
+        for(;y<=n;y++)
+        {
+            if (n%y==0&&n!=y)
+            {
+                break;
+            }
+            else if(n%y==0&&n==y)
+                prime.push(n);
+        }
+    n++;
+    }
+
+    return prime.top();
+}
+
+int main()
+{
+    cout<<nthPrime(10001);
+
+    return 0;
+}

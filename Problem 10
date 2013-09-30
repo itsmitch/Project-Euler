@@ -1,0 +1,36 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+bool isItPrime(long x)
+{
+    long i=2;
+    while(i<=sqrt(x))
+    {
+        if(x%i==0)
+        return false;
+
+        i++;
+    }
+return true;
+}
+
+unsigned long long sumOfPrimesUnder(long long x)
+{
+    unsigned long long sum=0;
+    for(long i=2;i<x;i++)
+    {
+        if (isItPrime(i))
+            sum=sum+i;
+    }
+return sum;
+}
+
+int main()
+{
+   cout<<sumOfPrimesUnder(2000000);
+
+
+    return 0;
+}
